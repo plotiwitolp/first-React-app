@@ -1,7 +1,3 @@
-
-.header img{
-  height: 100px;
-}
 .app-wrapper{
   display: grid;
   grid-template-areas: 
@@ -10,34 +6,9 @@
   "f f";
   grid-template-rows: 150px 1fr;
   grid-template-columns: 2fr 10fr;
-  grid-gap: 10px;
+  grid-gap: .2em;
   height: 100vh;
   max-width: 1200px;
   margin: 0 auto;
 }
-.header{
-  grid-area: h;
-}
-.nav{
-  grid-area: n;
-}
-.content{
-  grid-area: c;
-}
-.header, .nav{
-  padding: 10px;
-  background-color: rgb(147, 184, 171);
-}
-.content .headpic img{
-  width: 100%;
-  height: 200px;
-}
-.user-wrapper img{
-width: 150px;
-}
-.footer{
-  grid-area: f;
-  background-color: black;
-  color: aliceblue;
-  height: 150px;
-}
+
