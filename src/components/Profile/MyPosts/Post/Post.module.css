@@ -1,0 +1,32 @@
+.item{
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  border: 1px solid #eee;
+  box-shadow: 1px 2px 3px #8c8c8c;
+  margin: 20px 0 0 0;
+  padding: 20px 20px 0px 20px;
+}
+.item img{
+  width: 200px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+.item span{
+  position: relative;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  width: 50px;
+}
+.item span::after{
+  content: "";
+  background-image: url(https://clipart-best.com/img/like/like-clip-art-51.png);
+  position: absolute;
+  background-size: contain;
+  top: 0;
+  left: 25px;
+  display: block;
+  width: 20px;
+  height: 20px;
+}
