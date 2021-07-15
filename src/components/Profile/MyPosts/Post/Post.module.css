@@ -1,15 +1,14 @@
 .item{
   display: grid;
-  grid-template-columns: 210px 1fr;
-  border: 1px solid #eee;
-  box-shadow: -1px 3px 2px #bdbdbd;
+  grid-template-columns: 150px 1fr;
+  box-shadow: 0px 0px 3px 0px #bdbdbd;
   margin: 20px 0 0 0;
   padding: 20px 20px 0px 20px;
+  font-style: italic;
 }
 .item img{
-  width: 200px;
-  border-radius: 5px;
-  margin-bottom: 5px;
+  width: 100%;
+  border-radius: 50%;
 }
 .item span{
   position: relative;
