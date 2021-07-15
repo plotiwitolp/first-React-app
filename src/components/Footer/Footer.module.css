@@ -1,6 +1,7 @@
 .footer{
   grid-area: f;
-  background-color: black;
+  background-color: #015b71;
   color: aliceblue;
   height: 150px;
+  padding: 10px;
 }

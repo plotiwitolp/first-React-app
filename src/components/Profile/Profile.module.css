@@ -14,9 +14,11 @@
   width: 100%;
   align-self: center;
   justify-self: center;
+  border-radius: 2px;
   }
 .user{
   display: grid;
   grid-template-columns: 210px 1fr;
-  border: 1px solid #eee;
+  margin: 10px 0;
+  column-gap: 10px;
 }

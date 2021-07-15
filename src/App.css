@@ -1,13 +1,13 @@
 .app-wrapper{
   display: grid;
   grid-template-areas: 
-  "h h"
-  "n c"
-  "f f";
+  "h h "
+  "n c "
+  "f f ";
   grid-template-rows: 100px 1fr;
   grid-template-columns: 2fr 10fr;
   grid-gap: .2em;
-  height: 100vh;
+  min-height: 100vh;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -20,4 +20,6 @@
 .content-wrapper{
   grid-area: c;
   background-color: #e3f7ff8f;
+  padding: 0 10px;
+  border-right: 7px solid #0095ba;
 }
