@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 210px 1fr;
   border: 1px solid #eee;
-  box-shadow: 1px 2px 3px #8c8c8c;
+  box-shadow: -1px 3px 2px #bdbdbd;
   margin: 20px 0 0 0;
   padding: 20px 20px 0px 20px;
 }
@@ -17,16 +17,15 @@
   display: block;
   margin: 0 auto;
   margin-bottom: 5px;
-  width: 50px;
+  width: 200px;
 }
-.item span::after{
-  content: "";
-  background-image: url(https://clipart-best.com/img/like/like-clip-art-51.png);
-  position: absolute;
-  background-size: contain;
-  top: 0;
-  left: 25px;
-  display: block;
+.item span img{
   width: 20px;
-  height: 20px;
+  margin-bottom: 0;
+  margin-left: 5px;
+  border-radius: 0;
+  vertical-align: text-top;
+}
+.likeBtn{
+display: block;
 }

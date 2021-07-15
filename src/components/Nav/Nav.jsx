@@ -1,6 +1,6 @@
 import s from './Nav.module.css';
 
-console.log(s)
+
 const Nav = () => {
   return (
     <nav className={s.nav}>

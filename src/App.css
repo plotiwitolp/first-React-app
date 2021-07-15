@@ -4,7 +4,7 @@
   "h h"
   "n c"
   "f f";
-  grid-template-rows: 150px 1fr;
+  grid-template-rows: 100px 1fr;
   grid-template-columns: 2fr 10fr;
   grid-gap: .2em;
   height: 100vh;
@@ -16,4 +16,8 @@
   -webkit-box-sizing: border-box; 
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+.content-wrapper{
+  grid-area: c;
+  background-color: #e3f7ff8f;
 }
