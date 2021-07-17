@@ -1,6 +1,7 @@
 import s from "./ProfileInfo.module.css";
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
+
   return (
     <div className={s.wrapper}>
       <div className={s.headpic}>
@@ -8,7 +9,7 @@ const ProfileInfo = () => {
       </div>
       <div className={s.user}>
         <img src="https://images.wallpaperscraft.ru/image/kot_morda_vzglyad_89446_1024x768.jpg" />
-        <div className="desription">
+        <div className={s.desription}>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores
             tempore ea maiores iure qui eveniet voluptatibus quia necessitatibus

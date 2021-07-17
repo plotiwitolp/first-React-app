@@ -3,24 +3,33 @@ import Profile from "./components/Profile/Profile";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Nav from "./components/Nav/Nav";
-import Dialogs from "./components/Dialogs/Dialogs";
 import { BrowserRouter, Route } from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
+import Dialogs from "./components/Dialogs/Dialogs";
 
-const App = () => {
+const App = (props) => {
+
+
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
         <Nav />
         <div className="content-wrapper">
-          <Route path="/dialogs" component={Dialogs} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/news" component={News} />
-          <Route path="/music" component={Music} />
-          <Route path="/settings" component={Settings} />
+          <Route path="/dialogs" render={() => <Dialogs />} />
+          <Route path="/profile" render={() => <Profile bdPosts={props.postsData} />} />
+          <Route path="/news" render={() => <News/>} />
+          <Route path="/music" render={() => <Music/>} />
+          <Route path="/settings" render={() => <Settings/>} />
+
+
+          {/*<Route path="/dialogs" component={Dialogs} />*/}
+          {/*<Route path="/profile" component={Profile} />*/}
+          {/*<Route path="/news" component={News} />*/}
+          {/*<Route path="/music" component={Music} />*/}
+          {/*<Route path="/settings" component={Settings} />*/}
         </div>
         <Footer />
       </div>
