@@ -5,13 +5,12 @@ import React from "react";
 
 const Profile = (props) => {
 
-    const bdPosts = props.bdPosts
-
+    const state = props.state
 
   return (
     <div>
       <ProfileInfo />
-      <MyPosts bdPosts={bdPosts}/>
+      <MyPosts state={state}/>
     </div>
   );
 };

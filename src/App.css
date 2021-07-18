@@ -23,9 +23,6 @@
   padding: 0 10px;
   border-right: 7px solid #0095ba;
 }
-.message_inner{
-  font-style: italic;
-}
 .active{
   display: block;
   background-color: rgb(204 239 144);
