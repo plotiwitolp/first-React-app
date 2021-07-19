@@ -16,6 +16,7 @@
 }
 .messagesWrapper {
     padding-left: 10px;
+    min-height: 600px;
 }
 .messages .item{
     background-color: #015b71;
@@ -78,4 +79,30 @@
 
 a {
     text-decoration: none;
+}
+.answerBlock{
+    display: grid;
+    grid-template-columns: 10fr 2fr;
+}
+.dialogsTextarea {
+    border: 1px solid #777;
+    max-width: 550px;
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 35px;
+    outline: none;
+    background-color: #fff;
+    overflow: hidden;
+}
+.btnSend{
+    background-color: #015b71;
+    height: 60px;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    align-self: end;
+    border-radius: 50px;
+    margin: 10px 0;
+    font-size: 18px;
 }

@@ -16,6 +16,15 @@ const Dialogs = (props) => {
     const myMessagesElements = props.state.myMessages
         .map( massage => <MyMessage myMsg={massage.myMsg} /> )
 
+    const newMessage = React.createRef();
+
+    const addNewMessage = () => {
+
+        const text = newMessage.current.innerText;
+        props.addMyMessage(text);
+        newMessage.current.innerText = "";
+    }
+
     return (
         <div className={s.dialogs_wrapper}>
             <div className={s.dialogs}>
@@ -28,6 +37,11 @@ const Dialogs = (props) => {
             <div className={s.myMessages}>
                 {myMessagesElements}
             </div>
+            </div>
+            <div></div>
+            <div className={s.answerBlock}>
+            <div contenteditable="true" className={s.dialogsTextarea} ref={newMessage}></div>
+            <button className={s.btnSend} onClick={addNewMessage}>Send</button>
             </div>
         </div>
     );

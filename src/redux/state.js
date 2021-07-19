@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../render";
+
 const state = {
     profilePage: {
         posts: [
@@ -32,7 +34,7 @@ const state = {
             {
                 id: 3,
                 msg: "Test message 3 Test message 3 Test message 3 Test message 3 Test message 3 Test message 3 Test message 3 Test message 3 Test message 3 Test message 3 Test message 3 ",
-            }
+            },
         ],
         myMessages:[
             {id: 1, myMsg: "Test myMsg 1 Test myMsg 1 Test myMsg 1 Test myMsg 1 Test myMsg 1 Test myMsg 1 "},
@@ -51,7 +53,29 @@ const state = {
         },
 
     ]
-
 }
+
+export const addPost = (postMessage) => {
+
+    const newPost = {
+        id: 5,
+        msg: postMessage,
+        likesCount: 0
+    };
+    state.profilePage.posts.push(newPost);
+    rerenderEntireTree(state)
+}
+
+export const addMyMessage = (myMessage) => {
+
+    const newMyMessage = {
+        id: 3,
+        myMsg: myMessage
+    }
+    state.dialogsPage.myMessages.push(newMyMessage);
+    rerenderEntireTree(state)
+}
+
+
 export default state;
 
