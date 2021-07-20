@@ -93,6 +93,8 @@ a {
     outline: none;
     background-color: #fff;
     overflow: hidden;
+    height: 150px;
+    resize: none;
 }
 .btnSend{
     background-color: #015b71;
