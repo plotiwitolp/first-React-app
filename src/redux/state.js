@@ -57,12 +57,17 @@ const store = {
 
         ]
     },
+    _callSubscriber() {
+    },
+
     getState() {
         return this._state;
     },
-    _callSubscriber() {
+    subscribe(observer) {
+        this._callSubscriber = observer;
     },
-    addPost() {
+
+    _addPost() {
         const newPost = {
             id: 5,
             msg: this._state.profilePage.newPostText,
@@ -72,11 +77,11 @@ const store = {
         this._state.profilePage.newPostText = '';
         this._callSubscriber(this._state)
     },
-    updateNewPostText(newText) {
+    _updateNewPostText(newText) {
         this._state.profilePage.newPostText = newText;
         this._callSubscriber(this._state)
     },
-    addMyMessage() {
+    _addMyMessage() {
         const newMyMessage = {
             id: 3,
             myMsg: this._state.dialogsPage.newMessageText
@@ -85,13 +90,22 @@ const store = {
         this._state.dialogsPage.newMessageText = '';
         this._callSubscriber(this._state)
     },
-    updateNewMessageText(newText) {
+    _updateNewMessageText(newText) {
         this._state.dialogsPage.newMessageText = newText;
         this._callSubscriber(this._state)
     },
-    subscribe(observer) {
-        this._callSubscriber = observer;
+    dispatch(action) {
+        if (action.type === "ADD-POST") {
+            this._addPost()
+        } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+            this._updateNewPostText(action.newText)
+        } else if (action.type === "ADD-MY-MESSAGE"){
+            this._addMyMessage()
+        }else if (action.type === "UPDATE-NEW-MESSAGE-TEXT"){
+            this._updateNewMessageText(action.newText)
+        }
     }
+
 }
 
 export default store;
