@@ -1,5 +1,5 @@
 import s from "./Post.module.css";
-import {addLikeActionCreator} from "../../../../redux/state";
+import {addLikeActionCreator} from "../../../../redux/profile-reducer";
 
 
 const Post = (props) => {

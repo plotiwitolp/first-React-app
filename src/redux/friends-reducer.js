@@ -1,7 +1,10 @@
-const friendsReducer = (state, action) =>{
+const friendsReducer = (state, action) => {
+    switch (action.type) {
 
 
-    return state
+        default:
+            return state;
+    }
 }
 
 export default friendsReducer;
