@@ -5,12 +5,12 @@ import {addLikeActionCreator} from "../../../../redux/state";
 const Post = (props) => {
 
     const addLike = () => {
-        let  arrElements = document.querySelectorAll(".Post_item__10eNe")
-        for(let i = 0; i < arrElements.length; i++) {
-            (function(i) {
-                let el = arrElements[i];
+        let arrElements = document.querySelectorAll(".Post_item__10eNe")
+        for (let i = 0; i < arrElements.length; i++) {
+            (function (i) {
+                let el = arrElements[i].childNodes[3].childNodes[0].childNodes[1];
                 // debugger;
-                el.childNodes[3].childNodes[0].childNodes[1].onclick = function() {
+                el.onclick = function () {
                     props.dispatch(addLikeActionCreator(i));
                 }
             })(i);
@@ -24,7 +24,7 @@ const Post = (props) => {
             {props.message}
             <div></div>
             <div>
-        <span className={s.likeBtn}  key={"key"}>
+        <span className={s.likeBtn} key={"key"}>
         {props.likesCount}
             <img onMouseUp={addLike} src="https://clipart-best.com/img/like/like-clip-art-51.png"/>
           </span>

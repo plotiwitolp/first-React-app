@@ -8,9 +8,21 @@ const store = {
     _state: {
         profilePage: {
             posts: [
-                {id: 3, msg: "Test message 3 Test message 3 Test message 3 Test message 3 Test message 3", likesCount: 7},
-                {id: 2, msg: "Test message 2 Test message 2 Test message 2 Test message 2 Test message 2 Test message 2 Test message 2 Test message 2 Test message 2", likesCount: 15},
-                {id: 1, msg: "Test message 1 Test message 1 Test message 1 Test message 1 Test message 1 Test message 1 Test message 1 Test message 1 Test message 1", likesCount: 20},
+                {
+                    id: 3,
+                    msg: "Test message 3 Test message 3 Test message 3 Test message 3 Test message 3",
+                    likesCount: 7
+                },
+                {
+                    id: 2,
+                    msg: "Test message 2 Test message 2 Test message 2 Test message 2 Test message 2 Test message 2 Test message 2 Test message 2 Test message 2",
+                    likesCount: 15
+                },
+                {
+                    id: 1,
+                    msg: "Test message 1 Test message 1 Test message 1 Test message 1 Test message 1 Test message 1 Test message 1 Test message 1 Test message 1",
+                    likesCount: 20
+                },
             ],
             newPostText: [""],
         },
@@ -73,48 +85,34 @@ const store = {
         this._callSubscriber = observer;
     },
 
-    _addPost() {
-        const newPost = {
-            id: 5,
-            msg: this._state.profilePage.newPostText,
-            likesCount: 0
-        };
-        this._state.profilePage.posts.unshift(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber(this._state)
-    },
-    _updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state)
-    },
-    _addMyMessage() {
-        const newMyMessage = {
-            id: 3,
-            myMsg: this._state.dialogsPage.newMessageText
-        }
-        this._state.dialogsPage.myMessages.push(newMyMessage);
-        this._state.dialogsPage.newMessageText = '';
-        this._callSubscriber(this._state)
-    },
-    _updateNewMessageText(newText) {
-        this._state.dialogsPage.newMessageText = newText;
-        this._callSubscriber(this._state)
-    },
-    _addLike(currentIndexPost){
-        this._state.profilePage.posts[currentIndexPost].likesCount++;
-        this._callSubscriber(this._state);
-    },
+
     dispatch(action) {
         if (action.type === ADD_POST) {
-            this._addPost()
+            const newPost = {
+                id: 5,
+                msg: this._state.profilePage.newPostText,
+                likesCount: 0
+            };
+            this._state.profilePage.posts.unshift(newPost);
+            this._state.profilePage.newPostText = '';
+            this._callSubscriber(this._state)
         } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._updateNewPostText(action.newText)
-        } else if (action.type === ADD_MY_MESSAGE){
-            this._addMyMessage()
-        }else if (action.type === UPDATE_NEW_MESSAGE_TEXT){
-            this._updateNewMessageText(action.newText)
-        }else if (action.type === ADD_LIKE){
-            this._addLike(action.currentPost);
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this._state)
+        } else if (action.type === ADD_MY_MESSAGE) {
+            const newMyMessage = {
+                id: 3,
+                myMsg: this._state.dialogsPage.newMessageText
+            }
+            this._state.dialogsPage.myMessages.push(newMyMessage);
+            this._state.dialogsPage.newMessageText = '';
+            this._callSubscriber(this._state)
+        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+            this._state.dialogsPage.newMessageText = action.newText;
+            this._callSubscriber(this._state)
+        } else if (action.type === ADD_LIKE) {
+            this._state.profilePage.posts[action.currentPost].likesCount++;
+            this._callSubscriber(this._state);
         }
     }
 }
@@ -123,7 +121,7 @@ export const addPostActionCreator = () => ({type: ADD_POST})
 export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
 export const addMyMessageActionCreator = () => ({type: ADD_MY_MESSAGE})
 export const updateNewMessageTextActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newText: text})
-export  const addLikeActionCreator = (currentIndexPost) => ({type: ADD_LIKE, currentPost: currentIndexPost})
+export const addLikeActionCreator = (currentIndexPost) => ({type: ADD_LIKE, currentPost: currentIndexPost})
 
 export default store;
 window.state = store;
