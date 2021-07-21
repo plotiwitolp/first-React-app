@@ -4,5 +4,11 @@
   padding: 10px;
 }
 .header img{
-  height: 100%;
+  height: 80px;
+}
+.header .home{
+  color: #fff;
+  background-color: inherit;
+  font-size: 1.3em;
+  display: inline-block;
 }

@@ -4,8 +4,6 @@ import NavList from "./NavList/NavList";
 import React from "react";
 
 const Nav = (props) => {
-
-
     return (
         <div className={s.sideNav}>
             <NavList/>

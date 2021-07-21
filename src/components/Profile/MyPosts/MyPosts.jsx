@@ -1,24 +1,22 @@
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 import React from "react";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/state";
+
+
 
 const MyPosts = (props) => {
 
-    const postsElements = props.posts
-        .map(post => <Post id={post.id} message={post.msg} likesCount={post.likesCount}/>)
-
-    const newPostElement = React.createRef();
+    const postsElements = props.profilePage.posts
+        .map(post => <Post dispatch={props.dispatch} id={post.id} message={post.msg} likesCount={post.likesCount}/>)
 
     const addPost = () => {
-        // props.addPost();
-        props.dispatch({type: "ADD-POST"});
+        props.dispatch(addPostActionCreator());
     }
 
-    const onPostChange = () => {
-        const text = newPostElement.current.value
-        //props.updateNewPostText(text);
-        const action = {type: "UPDATE-NEW-POST-TEXT", newText: text};
-        props.dispatch(action);
+    const onPostChange = (e) => {
+        let text = e.target.value;
+        props.dispatch(updateNewPostTextActionCreator(text));
     }
 
     return (
@@ -26,12 +24,11 @@ const MyPosts = (props) => {
             <h2>My posts</h2>
             <div>
                 <h3>New post:</h3>
-                <textarea onChange={onPostChange} className={s.textarea} ref={newPostElement}
-                          value={props.newPostText}/>
+                <textarea onChange={onPostChange} className={s.textarea}
+                          value={props.profilePage.newPostText}/>
                 <button className={s.button} onClick={addPost}>Add post</button>
-                <button className={s.button}>Remove post</button>
             </div>
-            <div className={s.postsClass}>
+            <div>
                 {postsElements}
             </div>
         </div>

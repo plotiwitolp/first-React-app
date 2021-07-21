@@ -27,6 +27,7 @@
     margin-bottom: 10px;
     position: relative;
     color: #fff;
+    word-break: break-word;
 }
 .dialogs .item, .messages .item {
     border-radius: 4px;

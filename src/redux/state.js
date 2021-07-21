@@ -1,12 +1,18 @@
+const ADD_POST = "ADD-POST";
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const ADD_MY_MESSAGE = "ADD-MY-MESSAGE";
+const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
+const ADD_LIKE = "ADD_LIKE";
+
 const store = {
     _state: {
         profilePage: {
             posts: [
-                {id: 1, msg: "These posts create by React's props", likesCount: 20},
-                {id: 2, msg: "Hi! How are you?", likesCount: 15},
-                {id: 3, msg: "It is my first post", likesCount: 7}
+                {id: 3, msg: "Test message 3 Test message 3 Test message 3 Test message 3 Test message 3", likesCount: 7},
+                {id: 2, msg: "Test message 2 Test message 2 Test message 2 Test message 2 Test message 2 Test message 2 Test message 2 Test message 2 Test message 2", likesCount: 15},
+                {id: 1, msg: "Test message 1 Test message 1 Test message 1 Test message 1 Test message 1 Test message 1 Test message 1 Test message 1 Test message 1", likesCount: 20},
             ],
-            newPostText: [""]
+            newPostText: [""],
         },
         dialogsPage: {
             dialogs: [
@@ -73,7 +79,7 @@ const store = {
             msg: this._state.profilePage.newPostText,
             likesCount: 0
         };
-        this._state.profilePage.posts.push(newPost);
+        this._state.profilePage.posts.unshift(newPost);
         this._state.profilePage.newPostText = '';
         this._callSubscriber(this._state)
     },
@@ -94,19 +100,30 @@ const store = {
         this._state.dialogsPage.newMessageText = newText;
         this._callSubscriber(this._state)
     },
+    _addLike(currentIndexPost){
+        this._state.profilePage.posts[currentIndexPost].likesCount++;
+        this._callSubscriber(this._state);
+    },
     dispatch(action) {
-        if (action.type === "ADD-POST") {
+        if (action.type === ADD_POST) {
             this._addPost()
-        } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._updateNewPostText(action.newText)
-        } else if (action.type === "ADD-MY-MESSAGE"){
+        } else if (action.type === ADD_MY_MESSAGE){
             this._addMyMessage()
-        }else if (action.type === "UPDATE-NEW-MESSAGE-TEXT"){
+        }else if (action.type === UPDATE_NEW_MESSAGE_TEXT){
             this._updateNewMessageText(action.newText)
+        }else if (action.type === ADD_LIKE){
+            this._addLike(action.currentPost);
         }
     }
-
 }
+
+export const addPostActionCreator = () => ({type: ADD_POST})
+export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+export const addMyMessageActionCreator = () => ({type: ADD_MY_MESSAGE})
+export const updateNewMessageTextActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newText: text})
+export  const addLikeActionCreator = (currentIndexPost) => ({type: ADD_LIKE, currentPost: currentIndexPost})
 
 export default store;
 window.state = store;

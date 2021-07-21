@@ -7,12 +7,11 @@
   font-style: italic;
 }
 .item img{
-  width: 100%;
+  width: 80%;
   border-radius: 50%;
 }
 .item span{
   position: relative;
-  cursor: pointer;
   display: block;
   margin: 0 auto;
   margin-bottom: 5px;
@@ -24,6 +23,7 @@
   margin-left: 5px;
   border-radius: 0;
   vertical-align: text-top;
+  cursor: pointer;
 }
 .likeBtn{
 display: block;
