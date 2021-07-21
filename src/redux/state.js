@@ -1,8 +1,14 @@
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+import friendsReducer from "./friends-reducer";
+
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const ADD_LIKE = "ADD_LIKE";
+
 const ADD_MY_MESSAGE = "ADD-MY-MESSAGE";
 const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
-const ADD_LIKE = "ADD_LIKE";
+
 
 const store = {
     _state: {
@@ -87,33 +93,13 @@ const store = {
 
 
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            const newPost = {
-                id: 5,
-                msg: this._state.profilePage.newPostText,
-                likesCount: 0
-            };
-            this._state.profilePage.posts.unshift(newPost);
-            this._state.profilePage.newPostText = '';
-            this._callSubscriber(this._state)
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubscriber(this._state)
-        } else if (action.type === ADD_MY_MESSAGE) {
-            const newMyMessage = {
-                id: 3,
-                myMsg: this._state.dialogsPage.newMessageText
-            }
-            this._state.dialogsPage.myMessages.push(newMyMessage);
-            this._state.dialogsPage.newMessageText = '';
-            this._callSubscriber(this._state)
-        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-            this._state.dialogsPage.newMessageText = action.newText;
-            this._callSubscriber(this._state)
-        } else if (action.type === ADD_LIKE) {
-            this._state.profilePage.posts[action.currentPost].likesCount++;
-            this._callSubscriber(this._state);
-        }
+
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._state.friends = friendsReducer(this._state.friends, action);
+
+        this._callSubscriber(this._state);
+
     }
 }
 
