@@ -1,10 +1,10 @@
 .wrapper .headpic{
-  height: 200px;
+  max-height: 200px;
   overflow: hidden;
   background: linear-gradient(15deg, rgb(60 94 113) 27%, rgb(230 120 66) 51%, rgb(78 123 81) 86%);
 }
 .wrapper .headpic img{
-  width: 100%;
+  width: 140%;
   background-size: cover;
   margin-bottom: .2em;
   box-shadow: 1px 2px 3px #8c8c8c;
@@ -12,15 +12,14 @@
 }
 .user img{
   width: 100%;
-  align-self: center;
   justify-self: center;
   border-radius: 2px;
   }
 .user{
   display: grid;
-  grid-template-columns: 210px 1fr;
+  grid-template-columns: 2fr 10fr;
   margin: 10px 0;
-  column-gap: 10px;
+  grid-column-gap: 10px;
 }
 .desription{
   font-size: 19px;

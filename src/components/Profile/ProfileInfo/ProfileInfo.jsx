@@ -5,10 +5,10 @@ const ProfileInfo = (props) => {
   return (
     <div className={s.wrapper}>
       <div className={s.headpic}>
-        <img src="https://cdn.fishki.net/upload/post/2018/06/04/2615820/11.jpg" />
+        <img src="https://cdn.fishki.net/upload/post/2018/06/04/2615820/11.jpg" alt=""/>
       </div>
       <div className={s.user}>
-        <img src="https://images.wallpaperscraft.ru/image/kot_morda_vzglyad_89446_1024x768.jpg" />
+        <img src="https://images.wallpaperscraft.ru/image/kot_morda_vzglyad_89446_1024x768.jpg" alt=""/>
         <div className={s.desription}>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores

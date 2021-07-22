@@ -5,7 +5,7 @@ const Header = () => {
   return (
 
     <header className={s.header}>
-        <NavLink to="/profile" className={s.home}>  <img src="https://svgsilh.com/svg/1294579-2196f3.svg" />
+        <NavLink to="/profile" className={s.home}>  <img src="https://svgsilh.com/svg/1294579-2196f3.svg" alt=""/>
         </NavLink>
     </header>
 

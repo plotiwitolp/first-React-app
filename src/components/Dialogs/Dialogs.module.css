@@ -1,21 +1,18 @@
 .dialogs_wrapper {
     display: grid;
-    grid-template-columns: 3fr 9fr;
+    grid-template-columns: 1fr 11fr;
 }
 
 .dialogs {
     border-right: 1px dotted #777;
-    padding-right: 25px;
+    text-align: center;
 }
 
 .dialogs .item {
-    padding: 10px;
     margin-bottom: 10px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
 }
 .messagesWrapper {
-    padding-left: 10px;
+    padding: 0 12px 0 15px;
     min-height: 600px;
 }
 .messages .item{
@@ -71,6 +68,7 @@
     display: grid;
     overflow: hidden;
     background-color: #fff;
+    margin: 0 auto;
 }
 
 .user img {

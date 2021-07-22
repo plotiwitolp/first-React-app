@@ -8,21 +8,22 @@ import {addMyMessageActionCreator, updateNewMessageTextActionCreator} from "../.
 
 const Dialogs = (props) => {
 
-    const dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} id={d.id} img={d.img}/>);
+    let state = props.dialogsPage;
 
-    const messagesElements = props.dialogsPage.messages.map(m => <Message msg={m.msg}/>);
+    const dialogsElements = state.dialogs.map(d => <DialogItem name={d.name} id={d.id} img={d.img}/>);
 
-    const myMessagesElements = props.dialogsPage.myMessages.map(m => <MyMessage myMsg={m.myMsg}/>);
+    const messagesElements = state.messages.map(m => <Message msg={m.msg}/>);
 
-    const newMessage = React.createRef();
+    const myMessagesElements = state.myMessages.map(m => <MyMessage myMsg={m.myMsg}/>);
+
 
     const addNewMessage = () => {
-        props.dispatch(addMyMessageActionCreator());
+        props.addMyMessage();
     }
 
-    const onMessageChange = () => {
-        const text = newMessage.current.value
-        props.dispatch(updateNewMessageTextActionCreator(text));
+    const onMessageChange = (e) => {
+        const text = e.target.value
+        props.updateNewMessageBody(text);
     }
 
     return (
@@ -41,7 +42,7 @@ const Dialogs = (props) => {
             <div></div>
             <div className={s.answerBlock}>
                 <textarea placeholder="Enter your message" onChange={onMessageChange} className={s.dialogsTextarea}
-                          ref={newMessage} value={props.dialogsPage.newMessageText}/>
+                        value={state.newMessageText}/>
                 <button className={s.btnSend} onClick={addNewMessage}>Send</button>
             </div>
         </div>

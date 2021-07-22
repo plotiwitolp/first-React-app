@@ -1,5 +1,6 @@
 import {NavLink} from "react-router-dom";
 import s from "./../Dialogs.module.css";
+import React from "react";
 
 const DialogItem = (props) => {
     let idDialog = "/dialogs/" + props.id
@@ -8,7 +9,7 @@ const DialogItem = (props) => {
             <div className={s.item}>
                 {props.name}
                 <div className={s.user}>
-                    <img src={props.img}/>
+                    <img src={props.img} alt=""/>
                 </div>
             </div>
         </NavLink>

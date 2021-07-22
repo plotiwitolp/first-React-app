@@ -69,8 +69,6 @@ const store = {
                 name: "Jack",
                 ava: "https://yt3.ggpht.com/a/AGF-l7938tGYn0CYQfogO8LFSM-rIQ0_9qygzvM_ng=s900-c-k-c0xffffffff-no-rj-mo"
             },
-
-
         ]
     },
     _callSubscriber() {
