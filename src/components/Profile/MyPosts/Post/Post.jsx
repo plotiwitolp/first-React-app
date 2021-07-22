@@ -10,7 +10,7 @@ const Post = (props) => {
             (function (i) {
                 let el = arrElements[i].childNodes[2];
                 // debugger;
-                el.onclick = function () {
+                el.onclick = function() {
                     props.addLike(i);
                 }
             })(i);
@@ -24,7 +24,7 @@ const Post = (props) => {
             <div className={s.postTextEl}>{props.message}</div>
         <span className={s.likeBtn} key={"key"}>
         {props.likesCount}
-            <img onMouseUp={addLike} src="https://clipart-best.com/img/like/like-clip-art-51.png" alt=""/>
+            <img  onMouseUp={addLike} src="https://clipart-best.com/img/like/like-clip-art-51.png" alt=""/>
           </span>
 
         </div>

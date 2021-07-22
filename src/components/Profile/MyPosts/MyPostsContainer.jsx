@@ -7,29 +7,30 @@ import {
 import MyPosts from "./MyPosts";
 import StoreContext from "../../../StoreContext";
 
-const MyPostsContainer = (props) => {
+const MyPostsContainer = () => {
 
     return (
-        <StoreContext.Consumer>{
-            (store) => {
-                let state = store.getState()
-                const addPost = () => {
-                    store.dispatch(addPostActionCreator());
+        <StoreContext.Consumer>
+            {
+                (store) => {
+                    let state = store.getState()
+                    const addPost = () => {
+                        store.dispatch(addPostActionCreator());
+                    }
+                    const onPostChange = (text) => {
+                        let action = updateNewPostTextActionCreator(text)
+                        store.dispatch(action);
+                    }
+                    const addLike = (i) => {
+                        store.dispatch(addLikeActionCreator(i));
+                    }
+                    return <MyPosts updateNewPostText={onPostChange}
+                                    addPost={addPost}
+                                    addLike={addLike}
+                                    posts={state.profilePage.posts}
+                                    newPostText={state.profilePage.newPostText}/>
                 }
-                const onPostChange = (text) => {
-                    let action = updateNewPostTextActionCreator(text)
-                    store.dispatch(action);
-                }
-                const addLike = (i) => {
-                    store.dispatch(addLikeActionCreator(i));
-                }
-                return <MyPosts updateNewPostText={onPostChange}
-                                addPost={addPost}
-                                addLike={addLike}
-                                posts={state.profilePage.posts}
-                                newPostText={state.profilePage.newPostText}/>
             }
-        }
         </StoreContext.Consumer>
     );
 };

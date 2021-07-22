@@ -2,7 +2,6 @@ import s from "./../../Nav.module.css";
 import React from "react";
 
 const Friend = (props) => {
-
     return (
         <div className={s.friends}>
             <div className={s.friendAva}>
