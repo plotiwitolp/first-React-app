@@ -1,4 +1,3 @@
-import React from "react";
 import {
     addLikeActionCreator,
     addPostActionCreator,
@@ -6,36 +5,8 @@ import {
 } from "../../../redux/profile-reducer";
 import MyPosts from "./MyPosts";
 import {connect} from "react-redux";
-import Dialogs from "../../Dialogs/Dialogs";
-import {addMyMessageActionCreator, updateNewMessageTextActionCreator} from "../../../redux/dialogs-reducer";
 
-// const MyPostsContainer = () => {
-//
-//     return (
-//         <StoreContext.Consumer>
-//             {
-//                 (store) => {
-//                     let state = store.getState()
-//                     const addPost = () => {
-//                         store.dispatch(addPostActionCreator());
-//                     }
-//                     const onPostChange = (text) => {
-//                         let action = updateNewPostTextActionCreator(text)
-//                         store.dispatch(action);
-//                     }
-//                     const addLike = (i) => {
-//                         store.dispatch(addLikeActionCreator(i));
-//                     }
-//                     return <MyPosts updateNewPostText={onPostChange}
-//                                     addPost={addPost}
-//                                     addLike={addLike}
-//                                     posts={state.profilePage.posts}
-//                                     newPostText={state.profilePage.newPostText}/>
-//                 }
-//             }
-//         </StoreContext.Consumer>
-//     );
-// };
+
 
 let mapStateToProps = (state) => {
     return {
@@ -59,8 +30,6 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-
 const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts)
-
 
 export default MyPostsContainer;
