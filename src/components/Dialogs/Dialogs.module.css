@@ -106,4 +106,14 @@ a {
     border-radius: 50px;
     margin: 10px 0;
     font-size: 18px;
+    box-shadow: 1px 2px 3px #545454;
+}
+.btnSend:hover{
+    box-shadow: 1px 2px 3px #c3c3c3;
+    transition: .2s;
+}
+.btnSend:active{
+    box-shadow: none;
+    opacity: .8;
+    transition: .2s;
 }

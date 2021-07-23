@@ -1,0 +1,54 @@
+.imgWrapper{
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    border-radius: 50%;
+    background: #fff;
+}
+.userBlock{
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    max-width: 680px;
+    border: 1px solid #eee;
+    margin: 0 auto 5px;
+    background: #0095ba;
+    color: #fff;
+    font-size: 1.2em;
+    border-radius: 5px;
+    padding: 7px 0;
+}
+.userBlock button{
+    cursor: pointer;
+    background: none;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    box-shadow: 1px 2px 3px #545454;
+}
+.userBlock button:hover{
+    box-shadow: 1px 2px 3px #c3c3c3;
+    transition: .2s;
+}
+.userBlock button:active{
+    box-shadow: none;
+    opacity: .8;
+    transition: .2s;
+}
+.imgWrapper img{
+    width: 100px;
+}
+.userBlock button, .imgWrapper{
+    margin: 0 auto;
+    width: 100px;
+    display: block;
+}
+.status{
+    font-style: italic;
+}
+.imgWrapper{
+    margin-bottom: 5px;
+}
+.unfollow{
+    opacity: .7;
+}

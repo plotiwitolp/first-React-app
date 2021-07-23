@@ -18,6 +18,8 @@
 }
 .postTextEl{
   grid-area: text;
+  max-width: 60vw;
+  overflow: hidden;
 }
 .likeBtn{
   grid-area: likes;

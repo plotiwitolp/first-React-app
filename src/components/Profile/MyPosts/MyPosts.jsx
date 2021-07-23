@@ -10,7 +10,7 @@ const MyPosts = (props) => {
     }
 
     const postsElements = props.posts
-        .map(post => <Post addLike={addLike} id={post.id} message={post.msg} likesCount={post.likesCount}/>)
+        .map(post => <Post addLike={addLike} id={post.id} key={post.id} message={post.msg} likesCount={post.likesCount}/>)
 
     const onAddPost = () => {
         props.addPost();
