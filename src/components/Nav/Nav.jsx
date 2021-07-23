@@ -1,13 +1,13 @@
 import s from "./Nav.module.css";
-import Friends from "./Friends/Friends";
 import NavList from "./NavList/NavList";
 import React from "react";
+import FriendsContainer from "./Friends/FriendsContainer";
 
 const Nav = (props) => {
     return (
         <div className={s.sideNav}>
             <NavList/>
-            <Friends state={props.state}/>
+            <FriendsContainer />
         </div>
     );
 };

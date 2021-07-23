@@ -4,10 +4,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {Provider} from "./StoreContext";
 import {BrowserRouter} from "react-router-dom";
+import {Provider} from "react-redux";
 
-const rerenderEntireTree = () => {
+
     ReactDOM.render(
         <BrowserRouter>
             <Provider store={store}>
@@ -16,13 +16,11 @@ const rerenderEntireTree = () => {
         </BrowserRouter>,
         document.getElementById('root')
     );
-}
 
-rerenderEntireTree()
 
-store.subscribe(() => {
-    rerenderEntireTree()
-});
+// store.subscribe(() => {
+//     rerenderEntireTree()
+// });
 
 
 // If you want to start measuring performance in your app, pass a function
