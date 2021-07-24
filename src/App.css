@@ -17,9 +17,20 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+
+/*body{*/
+/*  background-color: #545454;*/
+/*}*/
+/*.Header_header__3jRR3, .Nav_sideNav__28bob{*/
+/*  background-color: #000 !important;*/
+/*}*/
+
 .content-wrapper{
   grid-area: c;
-  background-color: #e3f7ff8f;
+  /*background-color: #e3f7ff8f;*/
+  /*background-color: #000;*/
+  /*color: #fff;*/
   border-right: 7px solid #0095ba;
 }
 .active{

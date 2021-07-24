@@ -6,9 +6,6 @@ import Message from "./Message/Message";
 
 
 class Dialogs extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         let state = this.props.dialogsPage;
         const dialogsElements = state.dialogs.map(d => <DialogItem name={d.name} id={d.id} key={d.id} img={d.img}/>);

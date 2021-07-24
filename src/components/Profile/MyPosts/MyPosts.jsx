@@ -5,9 +5,6 @@ import React from "react";
 
 
 class MyPosts extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         const addLike = (i) => {
             this.props.addLike(i)

@@ -1,4 +1,4 @@
-.imgWrapper{
+.imgWrapper {
     height: 100px;
     width: 100px;
     overflow: hidden;
@@ -6,7 +6,8 @@
     border-radius: 50%;
     background: #fff;
 }
-.userBlock{
+
+.userBlock {
     display: grid;
     grid-template-columns: 1fr 1fr 2fr;
     max-width: 680px;
@@ -18,7 +19,8 @@
     border-radius: 5px;
     padding: 7px 0;
 }
-.userBlock button{
+
+.userBlock button {
     cursor: pointer;
     background: none;
     color: #fff;
@@ -26,29 +28,76 @@
     border-radius: 3px;
     box-shadow: 1px 2px 3px #545454;
 }
-.userBlock button:hover{
+
+.userBlock button:hover {
     box-shadow: 1px 2px 3px #c3c3c3;
     transition: .2s;
 }
-.userBlock button:active{
+
+.userBlock button:active {
     box-shadow: none;
     opacity: .8;
     transition: .2s;
 }
-.imgWrapper img{
+
+.imgWrapper img {
     width: 100px;
 }
-.userBlock button, .imgWrapper{
+
+.userBlock button, .imgWrapper {
     margin: 0 auto;
     width: 100px;
     display: block;
 }
-.status{
+
+.status {
     font-style: italic;
 }
-.imgWrapper{
+
+.imgWrapper {
     margin-bottom: 5px;
 }
-.unfollow{
+
+.unfollow {
     opacity: .7;
+}
+
+.paginationPage {
+    margin: 10px;
+    text-align: center;
+}
+
+.paginationPage span {
+    display: inline-block;
+    padding: 3px 10px;
+    background: #0095ba73;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 1px 2px 3px #a0a0a0;
+    margin-right: 10px;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -moz-transition: all .1s ease-out;
+    -o-transition: all .1s ease-out;
+    -webkit-transition: all .1s ease-out;
+}
+
+.paginationPage span:hover {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
+.paginationPage span:active {
+    box-shadow: 1px 2px 3px #fff;
+}
+span.selectedPage{
+    background: #000000;
+    color: #fff;
+    box-shadow: 1px 2px 3px #fff;
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
 }

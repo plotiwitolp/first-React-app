@@ -1,6 +1,6 @@
-import profileReducer from "./profile-reducer";
-import dialogsReducer from "./dialogs-reducer";
-import friendsReducer from "./friends-reducer";
+// import profileReducer from "./profile-reducer";
+// import dialogsReducer from "./dialogs-reducer";
+// import friendsReducer from "./friends-reducer";
 
 const store = {
     _state: {
@@ -91,5 +91,5 @@ const store = {
     }
 }
 
-export default store;
-window.state = store;
+// export default store;
+// window.state = store;
