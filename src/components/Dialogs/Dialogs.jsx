@@ -43,5 +43,6 @@ class Dialogs extends React.Component {
             </div>
         );
     }
+
 }
 export default Dialogs;
