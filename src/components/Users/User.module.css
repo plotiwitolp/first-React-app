@@ -9,8 +9,8 @@
 
 .userBlock {
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr;
-    max-width: 680px;
+    grid-template-columns: 2fr 3fr 2fr;
+    max-width: 920px;
     border: 1px solid #eee;
     margin: 0 auto 5px;
     background: #0095ba;
@@ -69,25 +69,29 @@
 
 .paginationPage span {
     display: inline-block;
+    width: 60px;
+    height: 30px;
     padding: 3px 10px;
+    vertical-align: middle;
     background: #0095ba73;
     cursor: pointer;
-    border-radius: 50%;
+    border-radius: 3px;
     box-shadow: 1px 2px 3px #a0a0a0;
-    margin-right: 10px;
+    margin: 1px;
     -ms-user-select: none;
     -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
-    -moz-transition: all .1s ease-out;
-    -o-transition: all .1s ease-out;
-    -webkit-transition: all .1s ease-out;
+    -moz-transition: all .07s ease-out;
+    -o-transition: all .07s ease-out;
+    -webkit-transition: all .07s ease-out;
 }
 
 .paginationPage span:hover {
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -o-transform: scale(1.1);
+    font-weight: bold;
+    /*-webkit-transform: scale(1.1);*/
+    /*-moz-transform: scale(1.1);*/
+    /*-o-transform: scale(1.1);*/
 }
 
 .paginationPage span:active {
@@ -100,4 +104,24 @@ span.selectedPage{
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     -o-transform: scale(1.1);
+}
+span.hide{
+    padding: 3px 0px;
+    width: 0.02%;
+    font-size: 0px;
+    margin: 2px 0px;
+    box-shadow: none;
+}
+span.hide:hover{
+    width: 60px;
+    font-size: 1em;
+    margin: 0px;
+    border-radius: 0;
+}
+.fetchingImg{
+    position: fixed;
+    width: 20%;
+    z-index: 1;
+    left: 45%;
+    top: 30%;
 }
