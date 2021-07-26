@@ -1,6 +1,7 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const ADD_LIKE = "ADD_LIKE";
+const SET_USER_PROFILE = "SET_USER_PROFILE";
 
 let initialState = {
     posts: [
@@ -33,6 +34,7 @@ let initialState = {
         imgHeadpic: "https://cdn.fishki.net/upload/post/2018/06/04/2615820/11.jpg",
     },
     newPostText: [""],
+    profile: null
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -61,12 +63,16 @@ const profileReducer = (state = initialState, action) => {
             stateCopy.posts[action.currentPost].likesCount++;
             return stateCopy;
         }
+        case SET_USER_PROFILE:{
+            return {...state, profile: action.profile}
+        }
         default:
             return state;
     }
 }
 
 export const addPostActionCreator = () => ({type: ADD_POST})
+export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
 export const addLikeActionCreator = (currentIndexPost) => ({type: ADD_LIKE, currentPost: currentIndexPost})
 

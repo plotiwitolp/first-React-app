@@ -1,5 +1,6 @@
 import style from './User.module.css'
 import React from "react";
+import {NavLink} from "react-router-dom";
 
 const Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -32,8 +33,11 @@ const Users = (props) => {
                     return (
                         <div className={style.userBlock} key={u.id}>
                             <div>
-                                <div className={style.imgWrapper}><img
-                                    src={`${u.photos.small || "https://techmesse.com/img/anonymous.jpg"}`} alt=""/>
+                                <div className={style.imgWrapper}>
+                                    <NavLink to={"/profile/" + u.id}>
+                                        <img src={`${u.photos.small || "https://techmesse.com/img/anonymous.jpg"}`}
+                                             alt=""/>
+                                    </NavLink>
                                 </div>
                                 <div>
                                     {u.followed

@@ -24,3 +24,9 @@
 .desription{
   font-size: 19px;
 }
+.desription p{
+  margin: 2px;
+}
+.desription > p{
+  border-bottom: 1px solid #777;
+}

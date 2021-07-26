@@ -1,16 +1,19 @@
 import React from "react";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
-import ProfileInfoContainer from "./ProfileInfo/ProfileInfoContainer";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import s from "./ProfileInfo/ProfileInfo.module.css";
 
-class Profile extends React.Component{
-    render(){
+const Profile = (props) => {
+    // debugger;
         return (
-            <div>
-                <ProfileInfoContainer />
+            <div className={s.wrapper}>
+                <div className={s.headpic}>
+                    <img src={props.profilePage.profileInfo.imgHeadpic} alt=""/>
+                </div>
+                    <ProfileInfo profilePage={props.profilePage}/>
                 <MyPostsContainer />
             </div>
         );
-    }
 }
 
 export default Profile;
