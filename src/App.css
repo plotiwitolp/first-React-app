@@ -16,13 +16,27 @@
   -webkit-box-sizing: border-box; 
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+
 }
 
 .content-wrapper{
   grid-area: c;
   border-right: 7px solid #0095ba;
 }
-.active{
-  display: block;
-  background-color: rgb(204 239 144);
+a {
+  text-decoration: none;
+
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+a, a:visited {
+  color: #fff;
+
+}
+
+a.active {
+  color: #2196f3;
 }

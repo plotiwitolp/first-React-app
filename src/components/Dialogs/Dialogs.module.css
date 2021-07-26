@@ -9,7 +9,9 @@
 }
 
 .dialogs .item {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    background-color: rgb(47 47 47);
+    padding-bottom: 10px;
 }
 .messagesWrapper {
     padding: 0 12px 0 15px;
@@ -74,11 +76,10 @@
 .user img {
     width: 100%;
     margin: auto;
+
 }
 
-a {
-    text-decoration: none;
-}
+
 .answerBlock{
     display: grid;
     grid-template-columns: 10fr 2fr;
