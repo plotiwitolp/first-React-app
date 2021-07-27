@@ -1,7 +1,6 @@
 import style from './User.module.css'
 import React from "react";
 import {NavLink} from "react-router-dom";
-import {followAPI} from "../../api/api";
 
 const Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -41,14 +40,16 @@ const Users = (props) => {
                                 </div>
                                 <div>
                                     {u.followed
-                                        ? <button className={style.unfollow} onClick={() => {followAPI.deleteFollow(props.unfollow(u.id), u.id)}}>unfollow</button>
-                                        : <button onClick={() => {followAPI.postFollow(props.follow(u.id), u.id)}}>follow</button>}
+                                        ? <button disabled={props.followingInProgress.some(id => id === u.id)}
+                                                  className={style.unfollow}
+                                                  onClick={() => {props.unfollow(u.id)}}>unfollow</button>
+                                        : <button disabled={props.followingInProgress.some(id => id === u.id)}
+                                                  onClick={() => {props.follow(u.id)}}>follow</button>
+                                    }
                                 </div>
                             </div>
                             <div>
                                 <div>Name: {u.name}</div>
-                                <div>Country: {"u.location.country"}</div>
-                                <div>City: {"u.location.city"}</div>
                             </div>
                             <div className={style.status}>
                                 {"\"" + u.status + "\""}
@@ -62,6 +63,5 @@ const Users = (props) => {
             </div>
         </div>
     )
-
 }
 export default Users;

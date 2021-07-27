@@ -125,3 +125,10 @@ span.hide:hover{
     left: 45%;
     top: 30%;
 }
+.userBlock button:disabled,
+.userBlock button[disabled]{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+    box-shadow: none;
+}
