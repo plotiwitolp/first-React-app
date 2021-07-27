@@ -1,7 +1,7 @@
 import s from "./ProfileInfo.module.css";
 import * as React from "react";
 import Preloader from "../../Common/Preloader/Preloader";
-
+import ProfileStatus from "./ProfileStatus"
 
 const ProfileInfo = (props) => {
     // debugger
@@ -11,12 +11,13 @@ const ProfileInfo = (props) => {
     let contacts = props.profilePage.profile.contacts
     return (
         <div className={s.wrapper}>
-            <div className={s.headpic}>
-                {/*<img src={props.profilePage.profileInfo.imgHeadpic} alt=""/>*/}
-            </div>
+            {/*<div className={s.headpic}>*/}
+            {/*    <img src={props.profilePage.profileInfo.imgHeadpic} alt=""/>*/}
+            {/*</div>*/}
             <div className={s.user}>
                 {/*<img src={props.profilePage.profileInfo.imgUser} alt=""/>*/}
                 <img src={props.profilePage.profile.photos.large} alt=""/>
+                <ProfileStatus status={"this place for your status and you may change it with a double click"}/>
                 <div className={s.desription}>
                     <p>
                         Полное имя:
