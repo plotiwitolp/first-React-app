@@ -20,6 +20,14 @@ export const usersAPI = {
     }
     ,
     unfollow(iserId) {
-        return  instance.delete(`follow/${iserId}`)
+        return instance.delete(`follow/${iserId}`)
+    },
+    getProfile(userId) {
+        return instance.get(`profile/${userId}`)
+    }
+}
+export const authAPI = {
+    getMe(){
+        return instance.get(`auth/me`)
     }
 }
