@@ -1,20 +1,27 @@
 import React from "react";
-import s from './ProfileInfo.module.css'
 
 class ProfileStatus extends React.Component {
+
     state = {
-        editMode: false
+        editMode: false,
+        status: this.props.status
     }
 
     activateEditMode = () => {
         this.setState({
-           editMode: true
+            editMode: true
         })
         // this.forceUpdate()
     }
     deactivateEditMode = () => {
         this.setState({
             editMode: false
+        })
+        this.props.updateStatus(this.state.status)
+    }
+    onStatusChange = (e) => {
+        this.setState({
+            status: e.currentTarget.value
         })
     }
 
@@ -26,7 +33,8 @@ class ProfileStatus extends React.Component {
                 </div>
                 }
                 {this.state.editMode && <div>
-                    <input autoFocus={true} onBlur={this.deactivateEditMode} value={this.props.status}></input>
+                    <input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateEditMode}
+                           value={this.state.status}></input>
                 </div>
                 }
             </div>

@@ -17,7 +17,7 @@ const ProfileInfo = (props) => {
             <div className={s.user}>
                 {/*<img src={props.profilePage.profileInfo.imgUser} alt=""/>*/}
                 <img src={props.profilePage.profile.photos.large} alt=""/>
-                <ProfileStatus status={"this place for your status and you may change it with a double click"}/>
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
                 <div className={s.desription}>
                     <p>
                         Полное имя:

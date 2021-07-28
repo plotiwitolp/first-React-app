@@ -9,7 +9,7 @@ const Profile = (props) => {
                 <div className={s.headpic}>
                     {/*<img src={props.profilePage.profileInfo.imgHeadpic} alt=""/>*/}
                 </div>
-                    <ProfileInfo profilePage={props.profilePage}/>
+                    <ProfileInfo profilePage={props.profilePage} status={props.status} updateStatus={props.updateStatus}/>
                 <MyPostsContainer />
             </div>
         );
