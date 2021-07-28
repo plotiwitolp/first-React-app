@@ -78,18 +78,16 @@
     margin: auto;
 
 }
-
-
 .answerBlock{
     display: grid;
     grid-template-columns: 10fr 2fr;
 }
 .dialogsTextarea {
     border: 1px solid #777;
-    max-width: 550px;
+    /*max-width: 550px;*/
     margin: 10px;
     padding: 10px 20px;
-    border-radius: 35px;
+    border-radius: 3px;
     outline: none;
     background-color: #fff;
     overflow: hidden;
