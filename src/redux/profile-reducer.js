@@ -34,7 +34,7 @@ let initialState = {
     },
     newPostText: [""],
     profile: null,
-    status: "place for your status"
+    status: ""
 }
 
 const profileReducer = (state = initialState, action) => {
