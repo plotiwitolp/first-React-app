@@ -1,40 +1,45 @@
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 import React from "react";
+import {Field, reduxForm} from "redux-form";
+import {maxLengthCreator, required} from "../../../utils/validators/validators";
+import {Textarea} from "../../Common/FormsControls/FormsControls";
 
+const maxLength10 = maxLengthCreator(10)
 
+let AddNewPostForm = (props) => {
+    return <form onSubmit={props.handleSubmit}>
+        <h3>New post:</h3>
+        <Field name={"newPostText"} component={Textarea} validate={[required, maxLength10]} placeholder={"Post message"}/>
+        <button className={s.button}>Add post</button>
+    </form>;
+}
 
-class MyPosts extends React.Component {
-    render() {
-        const addLike = (i) => {
-            this.props.addLike(i)
-        }
-        const postsElements = this.props.posts
-            .map(post => <Post addLike={addLike} id={post.id} key={post.id} message={post.msg} likesCount={post.likesCount}/>)
+let AddNewPostFormRedux = reduxForm({form: "ProfileAddNewPostForm"})(AddNewPostForm)
 
-        const onAddPost = () => {
-            this.props.addPost();
-        }
-        const onPostChange = (e) => {
-            let text = e.target.value;
-            this.props.updateNewPostText(text);
-        }
-        return (
-            <div>
-                <h2>My posts</h2>
-                <div>
-                    <h3>New post:</h3>
-                    <textarea onChange={onPostChange} className={s.textarea}
-                              value={this.props.newPostText}/>
-                    <button className={s.button} onClick={onAddPost}>Add post</button>
-                </div>
-                <div >
-                    {postsElements}
-                </div>
-            </div>
-        );
+const MyPosts = (props) => {
+
+    const addLike = (i) => {
+        props.addLike(i)
+    }
+    const postsElements = props.posts
+        .map(post => <Post addLike={addLike} id={post.id} key={post.id} message={post.msg}
+                           likesCount={post.likesCount}/>)
+
+    const onAddPost = (values) => {
+        props.addPost(values.newPostText);
     }
 
+    return (
+        <div>
+            <h2>My posts</h2>
+            <AddNewPostFormRedux onSubmit={onAddPost} value={props.newPostText} onClick={onAddPost}/>
+            <div>
+                {postsElements}
+            </div>
+        </div>
+    );
 }
+
 
 export default MyPosts;

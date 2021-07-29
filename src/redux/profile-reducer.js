@@ -1,7 +1,6 @@
 import {profileAPI, usersAPI} from "../api/api";
 
 const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const ADD_LIKE = "ADD_LIKE";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const SET_STATUS = "SET_STATUS";
@@ -32,7 +31,6 @@ let initialState = {
         imgUser: "https://www.pinclipart.com/picdir/big/138-1385107_png-file-user-vector-icon-png-clipart.png",
         imgHeadpic: "https://cdn.fishki.net/upload/post/2018/06/04/2615820/11.jpg",
     },
-    newPostText: [""],
     profile: null,
     status: ""
 }
@@ -41,17 +39,11 @@ const profileReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_POST: {
-            let newPost = state.newPostText;
+            let newPost = action.newPostText;
             return {
                 ...state,
                 newPostText: '',
                 posts: [{id: 5, msg: newPost, likesCount: 0}, ...state.posts]
-            }
-        }
-        case UPDATE_NEW_POST_TEXT: {
-            return {
-                ...state,
-                newPostText: action.newText
             }
         }
         case ADD_LIKE: {
@@ -74,7 +66,7 @@ const profileReducer = (state = initialState, action) => {
     }
 }
 
-export const addPostActionCreator = () => ({type: ADD_POST})
+export const addPostActionCreator = (newPostText) => ({type: ADD_POST, newPostText})
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 export const setStatus  = (status) => ({type: SET_STATUS, status})
 export const getStatus = (userId) => (dispatch) => {
@@ -96,7 +88,7 @@ export const getUserProfile = (userId) => (dispatch) => {
        dispatch(setUserProfile(response.data));
     });
 }
-export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+
 export const addLikeActionCreator = (currentIndexPost) => ({type: ADD_LIKE, currentPost: currentIndexPost})
 
 
