@@ -5,6 +5,7 @@ import {maxLengthCreator, required} from "../../utils/validators/validators";
 import {connect} from "react-redux";
 import {login} from "../../redux/auth-reducer";
 import {Redirect} from "react-router-dom";
+import s from "./../Common/FormsControls/FormsControls.module.css"
 
 const maxLength30 = maxLengthCreator(30)
 
@@ -24,6 +25,8 @@ const LoginForm = (props) => {
                 </label>
             </div>
             <div>
+                {props.error &&
+                <div className={ s.formSummaryError }>{props.error}</div> }
                 <button>Login</button>
             </div>
         </form>
