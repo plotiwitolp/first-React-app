@@ -13,11 +13,11 @@
 .user img{
   width: 100%;
   justify-self: center;
-  border-radius: 2px;
+  border-radius: 4px;
   }
 .user{
   display: grid;
-  grid-template-columns: 2fr 10fr;
+  grid-template-columns: 4fr 8fr;
   grid-column-gap: 10px;
   padding: 10px;
   background-color: #fff;
@@ -33,3 +33,17 @@
 .desription > p{
   border-bottom: 1px solid #777;
 }
+.desription div {
+  border-bottom: 1px solid #dcdcdc;
+}
+.desription div:last-child{
+  border: none
+}
+.desription h4{
+  margin: 0;
+}
+.userStatus{
+  text-align: center;
+}
+
+

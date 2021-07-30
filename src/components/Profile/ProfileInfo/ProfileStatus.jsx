@@ -1,4 +1,5 @@
 import React from "react";
+import s from "./ProfileInfo.module.css"
 
 class ProfileStatus extends React.Component {
 
@@ -24,7 +25,14 @@ class ProfileStatus extends React.Component {
             status: e.currentTarget.value
         })
     }
-
+    handleKeyPress = (e) => {
+        if(e.key === 'Enter'){
+            this.setState({
+                editMode: false
+            })
+            this.props.updateStatus(this.state.status)
+        }
+    }
     componentDidUpdate(prevProps, prevState) {
         if(prevProps.status !== this.props.status){
             this.setState({
@@ -32,17 +40,15 @@ class ProfileStatus extends React.Component {
             })
         }
     }
-
     render() {
         return (
-            <div>
-                {!this.state.editMode && <div>
-                    <span onDoubleClick={this.activateEditMode}>{this.props.status || "no status"}</span>
+            <div >
+                {!this.state.editMode && <div className={s.userStatus}>
+                   <b><i><span onDoubleClick={this.activateEditMode}>{this.props.status || "no status"}</span></i></b>
                 </div>
                 }
                 {this.state.editMode && <div>
-                    <input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateEditMode}
-                           value={this.state.status}></input>
+                    <input onKeyPress={this.handleKeyPress} onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateEditMode} value={this.state.status}/>
                 </div>
                 }
             </div>
