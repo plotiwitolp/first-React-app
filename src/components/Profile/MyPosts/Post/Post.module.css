@@ -5,10 +5,12 @@
           "likes likes";
   grid-column-gap: 20px;
   grid-template-columns: 2fr 10fr;
-  box-shadow: 0px 0px 3px 0px #bdbdbd;
-  margin: 20px 0 0 0;
-  padding: 20px 20px 0px 20px;
+  margin: 20px 0;
+  padding: 10px;
   font-style: italic;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #e6e6e6;
 }
 .item img{
   grid-area: pic;

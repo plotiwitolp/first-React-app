@@ -1,10 +1,23 @@
-.textarea{
-  width: 100%;
-  height: 100px;
-  background-color: #d2e2f194;
-  border: 1px solid #dcdcdc;;
+.wrapperForm{
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 1px 2px 3px #b3b3b3;
+  padding: 10px;
+  margin-top: .2em;
+}
+.wrapperForm h2{
+  margin: 0;
+}
+.NewPostTextArea{
+  width: 90%;
+  height: 120px;
+  border: 1px solid #dcdcdc;
+  box-shadow: 1px 2px 3px #eee;
+  border-radius: 4px;
   outline: none;
   resize: none;
+  margin-left: 15px;
+  padding: 5px;
 }
 .button{
   cursor: pointer;
@@ -12,6 +25,7 @@
   border: none;
   box-shadow: 1px 2px 3px #000;
   margin-right: 10px;
+  margin-left: 15px;
 }
 .button, .textarea{
   border-radius: 5px;

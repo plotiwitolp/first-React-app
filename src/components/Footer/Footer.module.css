@@ -1,7 +1,9 @@
 .footer{
   grid-area: f;
-  background-color: #015b71;
+  background-color: #2f2f2f;
   color: aliceblue;
   height: 150px;
   padding: 10px;
+  border-radius: 4px;
+  box-shadow: 1px 2px 3px #b3b3b3;
 }

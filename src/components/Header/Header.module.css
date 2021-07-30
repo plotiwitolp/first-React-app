@@ -1,10 +1,14 @@
 .header{
   grid-area: h;
-  background-color: rgb(1 91 113);
-  padding: 10px;
+  background-color: rgb(255 255 255);
+  padding: 7px;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  border-bottom: 1px solid #e7e8ec;
 }
 .header img{
-  height: 80px;
+  height: 40px;
 }
 .header .home{
   color: #fff;

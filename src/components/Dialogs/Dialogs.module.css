@@ -84,8 +84,6 @@
 }
 .dialogsTextarea {
     border: 1px solid #777;
-    /*max-width: 550px;*/
-    margin: 10px;
     padding: 10px 20px;
     border-radius: 3px;
     outline: none;
@@ -93,19 +91,24 @@
     overflow: hidden;
     height: 150px;
     resize: none;
+    width: 90%;
+    margin: 0 0 0 15px;
+    align-self: center;
+    box-shadow: 1px 2px 3px #b3b3b3;
 }
 .btnSend{
     background-color: #015b71;
-    height: 60px;
+    height: 40px;
     color: #fff;
     border: none;
     outline: none;
     cursor: pointer;
     align-self: end;
-    border-radius: 50px;
-    margin: 10px 0;
+    border-radius: 4px;
+    width: 90%;
+    margin: 0 10px 5px;
     font-size: 18px;
-    box-shadow: 1px 2px 3px #545454;
+    box-shadow: 1px 2px 3px #b3b3b3;
 }
 .btnSend:hover{
     box-shadow: 1px 2px 3px #c3c3c3;

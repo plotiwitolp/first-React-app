@@ -11,13 +11,13 @@
     display: grid;
     grid-template-columns: 2fr 3fr 2fr;
     max-width: 920px;
-    border: 1px solid #eee;
     margin: 0 auto 5px;
     background: #0095ba;
     color: #fff;
     font-size: 1.2em;
     border-radius: 5px;
     padding: 7px 0;
+    box-shadow: 1px 2px 3px #b3b3b3;
 }
 
 .userBlock button {
@@ -76,7 +76,7 @@
     background: #0095ba73;
     cursor: pointer;
     border-radius: 3px;
-    box-shadow: 1px 2px 3px #a0a0a0;
+    box-shadow: 1px 2px 3px #b3b3b3;
     margin: 1px;
     -ms-user-select: none;
     -moz-user-select: none;
