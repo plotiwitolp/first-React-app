@@ -4,6 +4,7 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import s from "./ProfileInfo/ProfileInfo.module.css";
 
 const Profile = (props) => {
+
         return (
             <div className={s.wrapper}>
                 <div className={s.headpic}>

@@ -4,6 +4,7 @@ const ADD_POST = "ADD-POST";
 const ADD_LIKE = "ADD_LIKE";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const SET_STATUS = "SET_STATUS";
+const POST_DELETE = "POST_DELETE";
 
 let initialState = {
     posts: [
@@ -43,7 +44,7 @@ const profileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 newPostText: '',
-                posts: [{id: 5, msg: newPost, likesCount: 0}, ...state.posts]
+                posts: [ ...state.posts, {id: 5, msg: newPost, likesCount: 0}]
             }
         }
         case ADD_LIKE: {
@@ -61,6 +62,9 @@ const profileReducer = (state = initialState, action) => {
         case SET_STATUS:{
             return {...state, status: action.status}
         }
+        case POST_DELETE:{
+            return {...state, posts: state.posts.filter(p => p.id != action.postId)}
+        }
         default:
             return state;
     }
@@ -69,6 +73,9 @@ const profileReducer = (state = initialState, action) => {
 export const addPostActionCreator = (newPostText) => ({type: ADD_POST, newPostText})
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 export const setStatus  = (status) => ({type: SET_STATUS, status})
+export const deletePost  = (postId) => ({type: POST_DELETE, postId})
+
+
 export const getStatus = (userId) => (dispatch) => {
     profileAPI.getStatus(userId)
         .then(response => {
