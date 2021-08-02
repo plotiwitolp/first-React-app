@@ -44,7 +44,7 @@ const profileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 newPostText: '',
-                posts: [ ...state.posts, {id: 5, msg: newPost, likesCount: 0}]
+                posts: [...state.posts, {id: 5, msg: newPost, likesCount: 0}]
             }
         }
         case ADD_LIKE: {
@@ -56,14 +56,14 @@ const profileReducer = (state = initialState, action) => {
             stateCopy.posts[action.currentPost].likesCount++;
             return stateCopy;
         }
-        case SET_USER_PROFILE:{
+        case SET_USER_PROFILE: {
             return {...state, profile: action.profile}
         }
-        case SET_STATUS:{
+        case SET_STATUS: {
             return {...state, status: action.status}
         }
-        case POST_DELETE:{
-            return {...state, posts: state.posts.filter(p => p.id != action.postId)}
+        case POST_DELETE: {
+            return {...state, posts: state.posts.filter(p => p.id !== action.postId)}
         }
         default:
             return state;
@@ -72,28 +72,23 @@ const profileReducer = (state = initialState, action) => {
 
 export const addPostActionCreator = (newPostText) => ({type: ADD_POST, newPostText})
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
-export const setStatus  = (status) => ({type: SET_STATUS, status})
-export const deletePost  = (postId) => ({type: POST_DELETE, postId})
+export const setStatus = (status) => ({type: SET_STATUS, status})
+export const deletePost = (postId) => ({type: POST_DELETE, postId})
 
 
-export const getStatus = (userId) => (dispatch) => {
-    profileAPI.getStatus(userId)
-        .then(response => {
-        dispatch(setStatus(response.data));
-    });
+export const getStatus = (userId) => async (dispatch) => {
+    let response = await profileAPI.getStatus(userId);
+    dispatch(setStatus(response.data));
 }
-export const updateStatus = (status) => (dispatch) => {
-    profileAPI.updateStatus(status)
-        .then(response => {
-            if(response.data.resultCode === 0){
-                dispatch(setStatus(status));
-            }
-        });
+export const updateStatus = (status) => async (dispatch) => {
+    let response = await profileAPI.updateStatus(status);
+    if (response.data.resultCode === 0) {
+        dispatch(setStatus(status));
+    }
 }
-export const getUserProfile = (userId) => (dispatch) => {
-    usersAPI.getProfile(userId).then(response => {
-       dispatch(setUserProfile(response.data));
-    });
+export const getUserProfile = (userId) => async (dispatch) => {
+    let response = await usersAPI.getProfile(userId);
+    dispatch(setUserProfile(response.data));
 }
 
 export const addLikeActionCreator = (currentIndexPost) => ({type: ADD_LIKE, currentPost: currentIndexPost})
