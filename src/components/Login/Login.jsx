@@ -1,6 +1,6 @@
 import React from "react";
 import {Field, reduxForm} from "redux-form";
-import {Input} from "../Common/FormsControls/FormsControls";
+import {createField, Input} from "../Common/FormsControls/FormsControls";
 import {maxLengthCreator, required} from "../../utils/validators/validators";
 import {connect} from "react-redux";
 import {login} from "../../redux/auth-reducer";
@@ -9,24 +9,15 @@ import s from "./../Common/FormsControls/FormsControls.module.css"
 
 const maxLength30 = maxLengthCreator(30)
 
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit, error}) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
+            {createField("Email", "email", [required, maxLength30], Input)}
+            {createField("Password", "password", [required, maxLength30], Input, {type: "password"})}
+            {createField(null, "rememberMe", null, Input, {type: "checkbox"},"remember me")}
             <div>
-                <Field placeholder={"Email"} name={"email"} component={Input} validate={[required, maxLength30]}/>
-            </div>
-            <div>
-                <Field placeholder={"Password"} type={"password"} name={"password"} component={Input}
-                       validate={[required, maxLength30]}/>
-            </div>
-            <div>
-                <label>
-                    <Field type={"checkbox"} name={"rememberMe"} component={"input"}/> remember me
-                </label>
-            </div>
-            <div>
-                {props.error &&
-                <div className={ s.formSummaryError }>{props.error}</div> }
+                {error &&
+                <div className={s.formSummaryError}>{error}</div>}
                 <button>Login</button>
             </div>
         </form>

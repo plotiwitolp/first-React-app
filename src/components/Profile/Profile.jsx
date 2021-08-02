@@ -2,6 +2,7 @@ import React from "react";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import s from "./ProfileInfo/ProfileInfo.module.css";
+import ProfileInfoContainer from "./ProfileInfo/ProfileInfoContainer";
 
 const Profile = (props) => {
 
@@ -9,7 +10,7 @@ const Profile = (props) => {
             <div className={s.wrapper}>
                 <div className={s.headpic}>
                 </div>
-                    <ProfileInfo profilePage={props.profilePage} status={props.status} updateStatus={props.updateStatus}/>
+                    <ProfileInfoContainer />
                 <MyPostsContainer />
             </div>
         );

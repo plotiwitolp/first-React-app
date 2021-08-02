@@ -2,33 +2,35 @@ import s from "./ProfileInfo.module.css";
 import * as React from "react";
 import Preloader from "../../Common/Preloader/Preloader";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+import anonymous from "./../../../assets/image/anonymous.jpg"
 
-const ProfileInfo = (props) => {
-    if (!props.profilePage.profile) {
+const ProfileInfo = ({profile, status, updateStatus}) => {
+    if (!profile) {
         return <Preloader/>
     }
-    let contacts = props.profilePage.profile.contacts
+    let contacts = profile.contacts
     return (
         <div className={s.wrapper}>
             <div className={s.user}>
                 <div>
-                    <img src={props.profilePage.profile.photos.large} alt=""/>
-                    <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
+                    <img src={`${profile.photos.large || anonymous}`}
+                         alt=""/>
+                    <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
                 </div>
                 <div className={s.desription}>
                     <div>
-                            <h3>{props.profilePage.profile.fullName}</h3>
+                            <h3>{profile.fullName}</h3>
                     </div>
                     <div>
                         <h4>Работа:</h4>
                         <p>
-                            {props.profilePage.profile.lookingForAJobDescription}
+                            {profile.lookingForAJobDescription}
                         </p>
                     </div>
                     <div>
                         <h4>Обо мне:</h4>
                         <p>
-                            {props.profilePage.profile.aboutMe}
+                            {profile.aboutMe}
                         </p>
                     </div>
                     <div>
