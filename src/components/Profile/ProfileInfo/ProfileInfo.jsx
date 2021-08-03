@@ -4,17 +4,25 @@ import Preloader from "../../Common/Preloader/Preloader";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import anonymous from "./../../../assets/image/anonymous.jpg"
 
-const ProfileInfo = ({profile, status, updateStatus}) => {
+const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
     if (!profile) {
         return <Preloader/>
     }
-    let contacts = profile.contacts
+    let contacts = profile.contacts;
+    const onMainPhotoSelected = (e) => {
+        if(e.target.files.length){
+            savePhoto(e.target.files[0]);
+        }
+
+    }
+
+
     return (
         <div className={s.wrapper}>
             <div className={s.user}>
                 <div>
-                    <img src={`${profile.photos.large || anonymous}`}
-                         alt=""/>
+                    <img src={profile.photos.large || anonymous} alt=""/>
+                    {isOwner && <input type={"file"} onChange={onMainPhotoSelected}/>}
                     <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
                 </div>
                 <div className={s.desription}>
