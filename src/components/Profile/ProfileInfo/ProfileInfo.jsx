@@ -8,15 +8,12 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
     if (!profile) {
         return <Preloader/>
     }
-    let contacts = profile.contacts;
     const onMainPhotoSelected = (e) => {
-        if(e.target.files.length){
+        if (e.target.files.length) {
             savePhoto(e.target.files[0]);
         }
 
     }
-
-
     return (
         <div className={s.wrapper}>
             <div className={s.user}>
@@ -27,36 +24,47 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
                 </div>
                 <div className={s.desription}>
                     <div>
-                            <h3>{profile.fullName}</h3>
+                        <h2>{profile.fullName}</h2>
                     </div>
-                    <div>
-                        <h4>Работа:</h4>
-                        <p>
-                            {profile.lookingForAJobDescription}
-                        </p>
-                    </div>
-                    <div>
-                        <h4>Обо мне:</h4>
-                        <p>
-                            {profile.aboutMe}
-                        </p>
-                    </div>
-                    <div>
-                        <h4>Контакты:</h4>
+                    <div className={s.chapterProfileInfo}>
+                        {profile.lookingForAJobDescription &&
                         <div>
-                            <p>{contacts.facebook ? contacts.facebook : null}</p>
-                            <p>{contacts.website ? contacts.website : null}</p>
-                            <p>{contacts.vk ? contacts.vk : null}</p>
-                            <p>{contacts.twitter ? contacts.twitter : null}</p>
-                            <p>{contacts.instagram ? contacts.instagram : null}</p>
-                            <p>{contacts.youtube ? contacts.youtube : null}</p>
-                            <p>{contacts.github ? contacts.github : null}</p>
+                            <h3>Looking job:</h3>
+                            <p>
+                                {profile.lookingForAJobDescription}
+                            </p>
+                        </div>
+                        }
+                    </div>
+                    <div className={s.chapterProfileInfo}>
+                        <div>
+                            <h3>About me:</h3>
+                            <p>
+                                {profile.aboutMe}
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <h3>Contacts:</h3>
+                            <div>
+                                {Object.keys(profile.contacts).map((key) => {
+                                    return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
+                                })}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     );
+}
+
+const Contact = ({contactTitle, contactValue}) => {
+    return (
+        <div>
+            {contactValue ? (<div className={s.contact}><b>{contactTitle}:</b> {contactValue} </div>) : ""}
+        </div>)
 }
 
 export default ProfileInfo;

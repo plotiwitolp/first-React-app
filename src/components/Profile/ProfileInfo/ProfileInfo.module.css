@@ -33,17 +33,19 @@
 .desription > p{
   border-bottom: 1px solid #777;
 }
-.desription div {
-  border-bottom: 1px solid #dcdcdc;
-}
-.desription div:last-child{
-  border: none
-}
-.desription h4{
-  margin: 0;
+.desription h4, .desription h3{
+  margin: 12px 0 3px;
 }
 .userStatus{
   text-align: center;
 }
-
+.contact{
+  border-bottom: 1px solid #dcdcdc;
+  padding: 5px 15px;
+  display: inline-block;
+}
+.chapterProfileInfo{
+  border-bottom: 1px solid #dcdcdc;
+  padding: 5px 0;
+}
 
