@@ -4,10 +4,7 @@ import Preloader from "../../Common/Preloader/Preloader";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import anonymous from "./../../../assets/image/anonymous.jpg"
 
-const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
-    if (!profile) {
-        return <Preloader/>
-    }
+const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, loading, error}) => {
     const onMainPhotoSelected = (e) => {
         if (e.target.files.length) {
             savePhoto(e.target.files[0]);
@@ -15,49 +12,53 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
 
     }
     return (
-        <div className={s.wrapper}>
-            <div className={s.user}>
-                <div>
-                    <img src={profile.photos.large || anonymous} alt=""/>
-                    {isOwner && <input type={"file"} onChange={onMainPhotoSelected}/>}
-                    <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
-                </div>
-                <div className={s.desription}>
-                    <div>
-                        <h2>{profile.fullName}</h2>
-                    </div>
-                    <div className={s.chapterProfileInfo}>
-                        {profile.lookingForAJobDescription &&
+        <>
+        { loading ? <Preloader /> : error ? <h2>{error}</h2> :
+          profile ?
+                (<div className={s.wrapper}>
+                    <div className={s.user}>
                         <div>
-                            <h3>Looking job:</h3>
-                            <p>
-                                {profile.lookingForAJobDescription}
-                            </p>
+                            <img src={profile.photos.large || anonymous} alt=""/>
+                            {isOwner && <input type={"file"} onChange={onMainPhotoSelected}/>}
+                            <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
                         </div>
-                        }
-                    </div>
-                    <div className={s.chapterProfileInfo}>
-                        <div>
-                            <h3>About me:</h3>
-                            <p>
-                                {profile.aboutMe}
-                            </p>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <h3>Contacts:</h3>
+                        <div className={s.desription}>
                             <div>
-                                {Object.keys(profile.contacts).map((key) => {
-                                    return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
-                                })}
+                                <h2>{profile.fullName}</h2>
+                            </div>
+                            <div className={s.chapterProfileInfo}>
+                                {profile.lookingForAJobDescription &&
+                                <div>
+                                    <h3>Looking job:</h3>
+                                    <p>
+                                        {profile.lookingForAJobDescription}
+                                    </p>
+                                </div>
+                                }
+                            </div>
+                            <div className={s.chapterProfileInfo}>
+                                <div>
+                                    <h3>About me:</h3>
+                                    <p>
+                                        {profile.aboutMe}
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <h3>Contacts:</h3>
+                                    <div>
+                                        {Object.keys(profile.contacts).map((key) => {
+                                            return <Contact key={key} contactTitle={key}
+                                                            contactValue={profile.contacts[key]}/>
+                                        })}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    );
+                </div>) : null
+        }</>);
 }
 
 const Contact = ({contactTitle, contactValue}) => {

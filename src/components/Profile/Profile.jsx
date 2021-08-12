@@ -12,7 +12,11 @@ const Profile = (props) => {
                                  isOwner={props.isOwner}
                                  profile={props.profilePage.profile}
                                  status={props.status}
-                                 updateStatus={props.updateStatus}/>
+                                 updateStatus={props.updateStatus}
+                                 loading={props.loading}
+                                 error={props.error}
+
+                    />
                 <MyPostsContainer />
             </div>
         );
